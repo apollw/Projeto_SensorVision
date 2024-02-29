@@ -1,7 +1,28 @@
 {
   "colors" : [
     {
+      "color" : {
+        "color-space" : "display-p3",
+        "components" : {
+          "alpha" : "1.000",
+          "blue" : "1.000",
+          "green" : "0.623",
+          "red" : "0.451"
+        }
+      },
       "idiom" : "universal"
+    },
+    {
+      "color" : {
+        "color-space" : "display-p3",
+        "components" : {
+          "alpha" : "1.000",
+          "blue" : "1.000",
+          "green" : "0.623",
+          "red" : "0.451"
+        }
+      },
+      "idiom" : "watch"
     }
   ],
   "info" : {
