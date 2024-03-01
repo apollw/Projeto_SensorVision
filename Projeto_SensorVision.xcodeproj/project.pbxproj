@@ -15,6 +15,10 @@
 		FCFFDE252B90F9C7005F04B5 /* Projeto_SensorVision_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFDE242B90F9C7005F04B5 /* Projeto_SensorVision_Watch_AppTests.swift */; };
 		FCFFDE2F2B90F9C7005F04B5 /* Projeto_SensorVision_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFDE2E2B90F9C7005F04B5 /* Projeto_SensorVision_Watch_AppUITests.swift */; };
 		FCFFDE312B90F9C7005F04B5 /* Projeto_SensorVision_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFDE302B90F9C7005F04B5 /* Projeto_SensorVision_Watch_AppUITestsLaunchTests.swift */; };
+		FCFFDE462B90FC32005F04B5 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFDE452B90FC32005F04B5 /* Device.swift */; };
+		FCFFDE482B90FE78005F04B5 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFDE472B90FE78005F04B5 /* Setting.swift */; };
+		FCFFDE4A2B9103EF005F04B5 /* PageRegConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFDE492B9103EF005F04B5 /* PageRegConfig.swift */; };
+		FCFFDE4C2B9107D8005F04B5 /* PageRegDisp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFDE4B2B9107D8005F04B5 /* PageRegDisp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,10 @@
 		FCFFDE2A2B90F9C7005F04B5 /* Projeto_SensorVision Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Projeto_SensorVision Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFFDE2E2B90F9C7005F04B5 /* Projeto_SensorVision_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projeto_SensorVision_Watch_AppUITests.swift; sourceTree = "<group>"; };
 		FCFFDE302B90F9C7005F04B5 /* Projeto_SensorVision_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projeto_SensorVision_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FCFFDE452B90FC32005F04B5 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		FCFFDE472B90FE78005F04B5 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		FCFFDE492B9103EF005F04B5 /* PageRegConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRegConfig.swift; sourceTree = "<group>"; };
+		FCFFDE4B2B9107D8005F04B5 /* PageRegDisp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRegDisp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +126,9 @@
 		FCFFDE122B90F9C6005F04B5 /* Projeto_SensorVision Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				FCFFDE442B90FC1E005F04B5 /* Model */,
+				FCFFDE412B90FBFE005F04B5 /* View */,
 				FCFFDE132B90F9C6005F04B5 /* Projeto_SensorVisionApp.swift */,
-				FCFFDE152B90F9C6005F04B5 /* ContentView.swift */,
 				FCFFDE172B90F9C7005F04B5 /* Assets.xcassets */,
 				FCFFDE192B90F9C7005F04B5 /* Preview Content */,
 			);
@@ -149,6 +158,25 @@
 				FCFFDE302B90F9C7005F04B5 /* Projeto_SensorVision_Watch_AppUITestsLaunchTests.swift */,
 			);
 			path = "Projeto_SensorVision Watch AppUITests";
+			sourceTree = "<group>";
+		};
+		FCFFDE412B90FBFE005F04B5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FCFFDE152B90F9C6005F04B5 /* ContentView.swift */,
+				FCFFDE492B9103EF005F04B5 /* PageRegConfig.swift */,
+				FCFFDE4B2B9107D8005F04B5 /* PageRegDisp.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FCFFDE442B90FC1E005F04B5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FCFFDE452B90FC32005F04B5 /* Device.swift */,
+				FCFFDE472B90FE78005F04B5 /* Setting.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,8 +337,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCFFDE4A2B9103EF005F04B5 /* PageRegConfig.swift in Sources */,
+				FCFFDE462B90FC32005F04B5 /* Device.swift in Sources */,
 				FCFFDE162B90F9C6005F04B5 /* ContentView.swift in Sources */,
+				FCFFDE482B90FE78005F04B5 /* Setting.swift in Sources */,
 				FCFFDE142B90F9C6005F04B5 /* Projeto_SensorVisionApp.swift in Sources */,
+				FCFFDE4C2B9107D8005F04B5 /* PageRegDisp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
