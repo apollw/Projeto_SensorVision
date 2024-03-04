@@ -13,6 +13,9 @@ struct PageRegConfig: View {
     @State private var text2: String = ""
     @State private var text3: String = ""
     @State var settings: [Setting]
+    @State private var showAlert1: Bool = false
+    @State private var showAlert2: Bool = false
+    @State private var showAlert3: Bool = false
     
     var body: some View {
         NavigationStack{
@@ -23,15 +26,48 @@ struct PageRegConfig: View {
                             .font(.system(size: 15))
                             .cornerRadius(2)
                             .foregroundColor(.white)
+                            .onTapGesture {showAlert1 = true}
+                            .alert(isPresented: $showAlert1) {
+                                Alert(
+                                    title: Text("Informação"),
+                                    message: Text("Defina um nome para sua Configuração de Local"),
+                                    dismissButton: .default(Text("OK")) {
+                                        showAlert1 = false;
+                                    }
+                                )
+                            }
+                        
                         TextField("Localizacao",text: $text2)
                             .font(.system(size: 15))
                             .cornerRadius(8)
                             .foregroundColor(.white)
+                            .onTapGesture {showAlert2 = true}
+                            .alert(isPresented: $showAlert2) {
+                                Alert(
+                                    title: Text("Informação"),
+                                    message: Text("Defina a Localização do novo Sensor"),
+                                    dismissButton: .default(Text("OK")) {
+                                        showAlert2 = false;
+                                    }
+                                )
+                            }
+                        
                         TextField("Descricao",text: $text3)
                             .font(.system(size: 15))
                             .cornerRadius(8)
                             .foregroundColor(.white)
+                            .onTapGesture {showAlert3 = true}
+                            .alert(isPresented: $showAlert3) {
+                                Alert(
+                                    title: Text("Informação"),
+                                    message: Text("Defina uma Descrição para seu novo Sensor"),
+                                    dismissButton: .default(Text("OK")) {
+                                        showAlert3 = false;
+                                    }
+                                )
+                            }
                     }//: VStack
+
                     
                     // Criando uma instância de Setting fora do NavigationLink
                     let newSetting = Setting(

@@ -11,6 +11,7 @@ struct ContentView: View {
     
     // MARK: - Property
     @State private var settings: [Setting] = [Setting]()
+    @State private var showAlert = false
     
     // MARK: - Function
     func getDocumentDirectory() -> URL {
@@ -35,22 +36,37 @@ struct ContentView: View {
     var body: some View {
         NavigationStack{
             VStack {
-                List {
-                    ForEach(0..<settings.count, id: \.self) { i in
-                        HStack {
-                            Capsule()
-                                .frame(width: 8)
-                                .foregroundColor(.accentColor)
-                            Text(settings[i].name)
-                                .lineLimit(1)
-                                .padding(.leading, 5)
-                        }
-                    }
-                }//: List
+//                List {
+//                    ForEach(0..<settings.count, id: \.self) { i in
+//                        HStack {
+//                            Capsule()
+//                                .frame(width: 8)
+//                                .foregroundColor(.accentColor)
+//                            Text(settings[i].name)
+//                                .lineLimit(1)
+//                                .padding(.leading, 5)
+//                        }
+//                    }
+//                }//: List
+                
+                Spacer()
+                
+                Image(.sensor)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 65, height: 65)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color("cyan"), lineWidth: 6)
+                    )
+                
+                Spacer()
                 
                 HStack{
                     Button {
                         // Ação ao pressionar o botão
+                        showAlert = true
                     } label: {
                         Image(systemName: "arrow.down.circle.fill")
                             .font(.system(size: 55, weight: .semibold))
@@ -58,6 +74,13 @@ struct ContentView: View {
                     }//: Button
                     .fixedSize()
                     .buttonStyle(PlainButtonStyle())
+                    .alert(isPresented: $showAlert) {
+                        Alert(
+                            title: Text("Informação"),
+                            message: Text("Aqui você poderá baixar configurações de diferentes locais"),
+                            dismissButton: .default(Text("OK"))
+                        )
+                    }
                     
 //                    NavigationLink(destination: PageRegConfig()) {
 //                        Image(systemName: "plus.circle")
@@ -71,7 +94,7 @@ struct ContentView: View {
                             .font(.system(size: 55, weight: .semibold))
                             .foregroundColor(.accentColor)
                     }//: NavigationLink
-                    .buttonStyle(PlainButtonStyle())                    
+                    .buttonStyle(PlainButtonStyle())
                     
                 }//: HStack
                 

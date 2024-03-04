@@ -16,7 +16,8 @@ struct PageRegDisp: View {
 //    @State private var newSettingList: [Setting] = [] // Lista para armazenar novas configurações
     
     @State private var settings: [Setting]
-    @State private var newSetting: Setting? // Optional para armazenar a nova configuração
+    @State private var newSetting: Setting? // Opcional para armazenar a nova configuração
+    @State private var showAlert1: Bool = false
         
     init(settings: [Setting], newSetting: Setting? = nil) {
         self._settings = State(initialValue: settings)
@@ -111,11 +112,13 @@ struct PageRegDisp: View {
                     .fixedSize()
                     .buttonStyle(PlainButtonStyle())
                     .foregroundColor(.accentColor)
+                    
                 }//: HSTACK
                 
                 //Salvar Setting
                 Button{
                     addNewSetting()
+                    showAlert1 = true
                     //saveSettings()
                 }label:{
                     Text("Salvar")
@@ -123,6 +126,15 @@ struct PageRegDisp: View {
                 }
                 .buttonStyle(PlainButtonStyle())
                 .foregroundColor(.white)
+                .alert(isPresented: $showAlert1) {
+                    Alert(
+                        title: Text("Informação"),
+                        message: Text("A nova configuracao é registrada com seus respectivos sensores"),
+                        dismissButton: .default(Text("OK")) {
+                            showAlert1 = false;
+                        }
+                    )
+                }
                 
                 .navigationTitle(settings[0].name)
             }//: VStack
