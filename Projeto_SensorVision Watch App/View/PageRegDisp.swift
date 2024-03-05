@@ -18,6 +18,8 @@ struct PageRegDisp: View {
     @State private var settings: [Setting]
     @State private var newSetting: Setting? // Opcional para armazenar a nova configuração
     @State private var showAlert1: Bool = false
+    @State private var value: Int = 0 // Inicializa a variável value
+
         
     init(settings: [Setting], newSetting: Setting? = nil) {
         self._settings = State(initialValue: settings)
@@ -37,8 +39,6 @@ struct PageRegDisp: View {
         _settings = State(initialValue: settings) // Inicialize settings com o valor recebido como parâmetro
     }
     
-
-    
     //MARK: - FUNCTION
                 
     func getDocumentDirectory() -> URL {
@@ -47,9 +47,21 @@ struct PageRegDisp: View {
     }
         
     // Seu botão "Adicionar Sensor" para adicionar um novo dispositivo à lista
-    func addDevice() {
+//    func addDevice(_value: Int) {
+//        let newDevice = Device(id: UUID(), name: "Novo Sensor", nickname: "Apelido", macAddress: "Endereço MAC")
+//        //setting.deviceList.append(newDevice)
+//        
+//        let myString = String(value)
+//        
+//        newDevice.name = newDevice.name + myString
+//        settings[0].deviceList.append(newDevice)
+//    }
+    
+    func addDevice(_ value: Int) {
         let newDevice = Device(id: UUID(), name: "Novo Sensor", nickname: "Apelido", macAddress: "Endereço MAC")
-        //setting.deviceList.append(newDevice)
+        
+        // Modifica o nome do dispositivo para incluir o valor passado como parâmetro
+        newDevice.name += " \(value)"
         settings[0].deviceList.append(newDevice)
     }
     
@@ -69,34 +81,39 @@ struct PageRegDisp: View {
 //        }
 //    }
     
+    func delete(offsets: IndexSet){
+        withAnimation{
+            settings[0].deviceList.remove(atOffsets: offsets)
+        }
+    }
+    
     var body: some View {
         NavigationStack{
             VStack{
-//                List{
-//                    ForEach(0..<setting.deviceList.count,id: \.self){ i in
-//                        HStack{
-//                            Capsule()
-//                                .frame(width: 4)
-//                                .foregroundColor(.accentColor)
-//                            Text(setting.deviceList[i].name)
-//                                .lineLimit(1)
-//                                .padding(.leading,5)
-//                        }//: HSTACK
-//                    }//: ForEach
-//                }//: List
-                
-                List{
-                    ForEach(0..<settings[0].deviceList.count,id: \.self){ i in
-                        HStack{
-                            Capsule()
-                                .frame(width: 4)
-                                .foregroundColor(.accentColor)
-                            Text(settings[0].deviceList[i].name)
-                                .lineLimit(1)
-                                .padding(.leading,5)
-                        }//: HSTACK
-                    }//: ForEach
-                }//: List
+                if settings[0].deviceList.count >= 1{
+                    List{
+                        ForEach(0..<settings[0].deviceList.count,id: \.self){ i in
+                            HStack{
+                                Capsule()
+                                    .frame(width: 4)
+                                    .foregroundColor(.accentColor)
+                                Text(settings[0].deviceList[i].name)
+                                    .lineLimit(1)
+                                    .padding(.leading,5)
+                            }//: HSTACK
+                        }//: ForEach
+                        .onDelete(perform: delete)
+                    }//: List
+                } else {
+                    Spacer()
+                    Image(systemName: "globe")
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundColor(.accentColor)
+                        .opacity(0.25)
+                        .padding(10)
+                    Spacer()
+                }
                 
                 HStack(alignment: .center, spacing: 3) {
                     Text("Adicionar Sensor")
@@ -104,7 +121,8 @@ struct PageRegDisp: View {
                         .foregroundColor(.blue) // Define a cor do texto para azul
                     
                     Button{
-                        addDevice()
+                        value += 1 // Incrementa o valor ao pressionar o botão
+                        addDevice(value)
                     }label:{
                         Image(systemName: "plus.circle")
                             .font(.system(size: 42,weight: .semibold))
@@ -156,7 +174,7 @@ struct PageRegDisp: View {
 struct PageRegDisp_Previews: PreviewProvider {
     static var previews: some View {
         let sampleSettings: [Setting] = [
-            Setting(name: "Setting 1", location: "Location 1", description: "Description 1"),
+            Setting(name: "Local Novo", location: "Location 1", description: "Description 1"),
             Setting(name: "Setting 2", location: "Location 2", description: "Description 2"),
             Setting(name: "Setting 3", location: "Location 3", description: "Description 3")
         ]
