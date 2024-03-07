@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC4FEF462B9A1B1500983FFE /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4FEF452B9A1B1500983FFE /* BluetoothManager.swift */; };
 		FCFFDE0F2B90F9C6005F04B5 /* Projeto_SensorVision Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FCFFDE0E2B90F9C6005F04B5 /* Projeto_SensorVision Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FCFFDE142B90F9C6005F04B5 /* Projeto_SensorVisionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFDE132B90F9C6005F04B5 /* Projeto_SensorVisionApp.swift */; };
 		FCFFDE162B90F9C6005F04B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFDE152B90F9C6005F04B5 /* ContentView.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FC4FEF452B9A1B1500983FFE /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
 		FCFFDE082B90F9C6005F04B5 /* Projeto_SensorVision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Projeto_SensorVision.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFFDE0E2B90F9C6005F04B5 /* Projeto_SensorVision Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Projeto_SensorVision Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFFDE132B90F9C6005F04B5 /* Projeto_SensorVisionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projeto_SensorVisionApp.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			children = (
 				FCFFDE452B90FC32005F04B5 /* Device.swift */,
 				FCFFDE472B90FE78005F04B5 /* Setting.swift */,
+				FC4FEF452B9A1B1500983FFE /* BluetoothManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				FCFFDE4A2B9103EF005F04B5 /* PageRegConfig.swift in Sources */,
 				FCFFDE462B90FC32005F04B5 /* Device.swift in Sources */,
 				FCFFDE162B90F9C6005F04B5 /* ContentView.swift in Sources */,
+				FC4FEF462B9A1B1500983FFE /* BluetoothManager.swift in Sources */,
 				FCFFDE482B90FE78005F04B5 /* Setting.swift in Sources */,
 				FCFFDE142B90F9C6005F04B5 /* Projeto_SensorVisionApp.swift in Sources */,
 				FCFFDE4C2B9107D8005F04B5 /* PageRegDisp.swift in Sources */,
@@ -517,7 +521,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "IFMA.Projeto-SensorVision.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fabricadeinovacao.meusensorvision;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -547,7 +551,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "IFMA.Projeto-SensorVision.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fabricadeinovacao.meusensorvision;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -563,13 +567,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JA4TZLJA69;
 				INFOPLIST_KEY_CFBundleDisplayName = Projeto_SensorVision;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "IFMA.Projeto-SensorVision";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fabricadeinovacao.meusensorvision;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 			};
@@ -579,13 +585,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JA4TZLJA69;
 				INFOPLIST_KEY_CFBundleDisplayName = Projeto_SensorVision;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "IFMA.Projeto-SensorVision";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fabricadeinovacao.meusensorvision;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
